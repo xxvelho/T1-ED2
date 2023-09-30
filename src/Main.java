@@ -1,17 +1,44 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+import armazenamento.Dados;
+import java.util.Arrays;
+
 public class Main {
+    //QUESTÃO 01
+    public static Dados<?>[] kthLargestElements(Dados<?>[] V1, int[] P) {
+        Arrays.sort(V1);//mudar mengeSort
+        Dados<?>[] result = new Dados[P.length];
+
+        for (int i = 0; i < P.length; i++) {
+            int k = P[i] - 1;
+            if (k >= 0 && k < V1.length){
+                result[i] = V1[k];
+            }else{
+                result[i] = null;
+            }
+        }
+        return result;
+    }
+
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!\n");
+        Q1();
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+    }
+    public  static void Q1(){
+        Dados<Double>[] V1 = new Dados[]{
+                new Dados<>(21.0),
+                new Dados<>(19.0),
+                new Dados<>(16.0),
+                new Dados<>(13.0),
+                new Dados<>(8.0),
+                new Dados<>(5.3),
+                new Dados<>(20.0)
+        };
+        int[] P = {2, 5};
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+        Dados<?>[] resposta = kthLargestElements(V1, P);
+
+        //Impressão dos resultados
+        for (Dados<?> dado : resposta) {
+            System.out.println(dado);
         }
     }
 }
