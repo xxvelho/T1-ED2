@@ -1,10 +1,13 @@
 import armazenamento.Dados;
 import java.util.Arrays;
+import ordenacao.MergeSort;
 
 public class Main {
     //QUESTÃO 01
     public static Dados<?>[] kthLargestElements(Dados<?>[] V1, int[] P) {
-        Arrays.sort(V1);//mudar mengeSort
+        MergeSort mergeSort = new MergeSort();
+        mergeSort.sort(V1); //Ordenando vetor com mergeSort - O(n log n)
+
         Dados<?>[] result = new Dados[P.length];
 
         for (int i = 0; i < P.length; i++) {
@@ -26,7 +29,8 @@ public class Main {
         System.arraycopy(V2, 0, vetorCombinado, V1.length, V2.length);
 
         // Ordena o vetor combinado
-        Arrays.sort(vetorCombinado);
+        MergeSort mergeSort = new MergeSort();
+        mergeSort.sort(vetorCombinado); //Ordenando vetor com mergeSort - O(n log n)
 
         int tamanho = vetorCombinado.length;
         Dados<?>[] mediana = new Dados[2];
@@ -66,7 +70,8 @@ public class Main {
 
     //QUESTAO 03 B)
     public static boolean DistanciaTEntreElementosB(Dados<?>[] vetor, int T) {
-        Arrays.sort(vetor); // Ordena o vetor em O(n log n)
+        MergeSort mergeSort = new MergeSort();
+        mergeSort.sort(vetor); //Ordenando vetor com mergeSort - O(n log n)
 
         int esquerda = 0;
         int direita = 1;
@@ -101,9 +106,12 @@ public class Main {
 
 
     public static void main(String[] args) {
-//        Q1();
-//        Q2Numeros();
-//        Q2Strings();
+        Q1();
+        System.out.println();
+        Q2Numeros();
+        System.out.println();
+        Q2Strings();
+        System.out.println();
         Q3();
     }
     public  static void Q1(){
