@@ -18,18 +18,6 @@ public class Dados<T extends Comparable<T>> implements Comparable <Dados<T>>{//E
 		}
 	}
 
-	@Override
-	public String toString() {
-		return "Dados{" +
-				"value=" + value +
-				'}';
-	}
-
-	public T getValue() {
-		return this.value;
-	}
-
-
 	public Object getValueType() {// Retorna o valor desta estrutura com seu tipo especificado
 		if(this.value instanceof Integer) {
 			return (Integer)this.value;
@@ -38,5 +26,15 @@ public class Dados<T extends Comparable<T>> implements Comparable <Dados<T>>{//E
 		} else {
 			return (String)this.value;
 		}
+	}
+
+
+	public T getValue() {
+		return this.value;
+	}
+
+	@Override
+	public String toString() {
+		return "" + value;
 	}
 }
